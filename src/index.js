@@ -6,22 +6,9 @@ import './index.css';
 import { createStore } from 'redux';
 import {Provider} from 'react-redux';
 
-const initialState = [
-    'track 1', 'track 2'
-];
+import reducer from './reducers';
 
-
-function playlist(state = initialState, action){
-    if(action.type === 'ADD_TRACK'){
-        return [
-            ...state,
-            action.payload
-        ];
-    }
-    return state;
-}
-
-const store = createStore(playlist,
+const store = createStore(reducer,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 

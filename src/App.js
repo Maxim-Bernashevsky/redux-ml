@@ -16,7 +16,7 @@ import { connect } from 'react-redux';
                 <input type="text" ref={(input) => {this.trackInput = input}} />
                 <button onClick={this.addTrack.bind(this)}>Add track</button>
                 <ul>
-                    {this.props.testStore.map((track, index) =>
+                    {this.props.tracks.map((track, index) =>
                         <li key={index}>{track}</li>
                     )}
                 </ul>
@@ -28,7 +28,7 @@ import { connect } from 'react-redux';
 
 export default connect(
     state => ({
-        testStore: state
+            tracks: state.tracks
     }),
     dispatch => ({
         onAddTrack: (trackName) => {
